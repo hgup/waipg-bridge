@@ -54,7 +54,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={cn("bg-background font-sans antialiased", fontSans.variable)}
+        className={cn("bg-background font-sans antialiased dark", fontSans.variable)}
       >
         <ScrollArea className="h-screen">
           <Navbar />
