@@ -18,10 +18,10 @@ import { Badge } from "./ui/badge"
 
 export default function Navbar() {
   const links = [
-    {
-      name: "Tool",
-      href: "#",
-    },
+    // {
+    //   name: "Tool",
+    //   href: "#",
+    // },
     {
       name: "About",
       href: "#",
@@ -48,11 +48,9 @@ export default function Navbar() {
               <Link
                 key={index}
                 href={link.href}
-                className="text-foreground  font-semibold tracking-wide transition-colors hover:text-foreground"
+                className="text-foreground  font-semibold tracking-wide transition-colors hover:text-foreground text-xs uppercase"
               >
-                <Badge variant="outline" className="text-xs uppercase">
-                  {link.name}
-                </Badge>
+                {link.name}
               </Link>
             ))}
           </div>
