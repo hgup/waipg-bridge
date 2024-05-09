@@ -40,7 +40,7 @@ export default function Navbar() {
               className="size-9"
             />
             <span className="whitespace-nowrap text-lg font-bold">
-              Powergrid
+              AIPowergrid
             </span>
           </div>
           <div className="space-x-2">
