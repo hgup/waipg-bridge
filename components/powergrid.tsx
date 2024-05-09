@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/form"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import Copy from "./copybutton"
 
 export default function PowerGridWrapper() {
   const [show, setShow] = React.useState(false)
@@ -126,14 +127,15 @@ const unwrapformInputs = [
   },
 ]
 const postSteps = [
-  {
-    id: "adminaddr",
-    label: "AIPG Admin Address",
-    placeholder: "AIPG Admin Address",
-  },
+  // {
+  //   id: "adminaddr",
+  //   label: "AIPG Admin Address",
+  //   placeholder: "AIPG Admin Address",
+  // },
   {
     id: "transactionhash",
-    label: "Transaction Hash of wAIPG from User to Admin",
+    label:
+      "Once this is done, then input the resulting hexidecimal transaction hash of that transaction between yourself and the admin for the specified amount",
     placeholder: "Transaction Hash of wAIPG from User to Admin",
   },
 ]
@@ -159,9 +161,9 @@ const unwrapFormSchema = z.object({
   receivingaddr: z.string().min(2, {
     message: "Enter a valid Ethereum address",
   }),
-  adminaddr: z.string().min(2, {
-    message: "Enter a valid Ethereum address",
-  }),
+  // adminaddr: z.string().min(2, {
+  //   message: "Enter a valid Ethereum address",
+  // }),
   transactionhash: z.string().min(2, {
     message: "Enter a valid Ethereum address",
   }),
@@ -173,6 +175,7 @@ const PowerGridMain = ({ setWrap }: { setWrap: Function }) => {
     defaultValues: {},
   })
 
+  const adminaddr = "0x12ae66cdc592e10b60f9097a7b0d3c59fce29876"
   const unwrapForm = useForm<z.infer<typeof unwrapFormSchema>>({
     resolver: zodResolver(unwrapFormSchema),
     defaultValues: {},
@@ -289,6 +292,12 @@ const PowerGridMain = ({ setWrap }: { setWrap: Function }) => {
                   <legend className="-ml-1 px-1 text-sm text-muted-foreground font-medium">
                     Follow steps
                   </legend>
+                  <span className="text-sm">
+                    Send the amount of wAIPG you specify above, from your user
+                    Ethereum address specified above, to the Admin Ethereum
+                    Address:{" "}
+                  </span>
+                  <Copy text={adminaddr} />
                   {postSteps.map((inputs, i) => (
                     <FormField
                       key={i + unwrapformInputs.length}
