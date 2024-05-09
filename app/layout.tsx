@@ -54,13 +54,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={cn("bg-background font-sans antialiased dark", fontSans.variable)}
+        className={cn(
+          "bg-background font-sans antialiased dark min-h-screen no-scrollbar overflow-y-auto",
+          fontSans.variable
+        )}
       >
-        <ScrollArea className="h-screen">
-          <Navbar />
-          {children}
-          {/* <Footer /> */}
-        </ScrollArea>
+        <Navbar />
+        {children}
+        {/* <Footer /> */}
       </body>
     </html>
   )
