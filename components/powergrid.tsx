@@ -134,9 +134,8 @@ const postSteps = [
   // },
   {
     id: "transactionhash",
-    label:
-      "Once this is done, then input the resulting hexidecimal transaction hash of that transaction between yourself and the admin for the specified amount",
-    placeholder: "Transaction Hash of wAIPG from User to Admin",
+    label: "Transaction Hash of wAIPG",
+    placeholder: "T-Hash of wAIPG from User to Admin",
   },
 ]
 
@@ -292,12 +291,20 @@ const PowerGridMain = ({ setWrap }: { setWrap: Function }) => {
                   <legend className="-ml-1 px-1 text-sm text-muted-foreground font-medium">
                     Follow steps
                   </legend>
-                  <span className="text-sm">
+                  <span className="text-sm max-w-md">
                     Send the amount of wAIPG you specify above, from your user
                     Ethereum address specified above, to the Admin Ethereum
                     Address:{" "}
                   </span>
                   <Copy text={adminaddr} />
+                  <span className="text-sm max-w-md">
+                    {"Once this is done, then input the resulting "}
+                    <strong className="text-yellow-300">
+                      hexidecimal transaction hash
+                    </strong>{" "}
+                    of that transaction between yourself and the admin for the
+                    specified amount
+                  </span>
                   {postSteps.map((inputs, i) => (
                     <FormField
                       key={i + unwrapformInputs.length}

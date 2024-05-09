@@ -21,13 +21,13 @@ export default function CopyButton({ text }: { text: string }) {
           <TooltipTrigger asChild>
             <button
               type="button"
-              className="flex flex-row gap-2 items-center text-muted-foreground font-semibold tracking-wide w-min text-xs border py-3 px-6 rounded-lg mx-auto"
+              className="flex flex-row gap-2 items-center text-muted-foreground font-semibold tracking-wide max-w-[320px] md:w-min text-xs border py-2.5 px-6 rounded-lg mx-auto  "
               onClick={(e) => {
                 clipboard.copy(text)
                 setStatus("copied")
               }}
             >
-              <span className="h-4">{text}</span>
+              <span className="h-4 truncate">{text}</span>
               {status === "copied" ? <CheckIcon className="size-4" /> : null}
             </button>
           </TooltipTrigger>
